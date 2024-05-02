@@ -2,9 +2,8 @@
 console.log("Soru 1- Girilen sayıların asal sayı olup olmadığını kontrol eden fonksiyon.");
 let isAsal = (...numbers) => {
     let bolenSayisi = 0
-    let enBuyukSayi = Math.max(...numbers)
     for (let i = 0; i < numbers.length; i++) {
-        for (let j = 1; j <= enBuyukSayi; j++) {
+        for (let j = 1; j <= numbers[i]; j++) {
             if(numbers[i] > 1 && numbers[i] % j == 0) {
                 bolenSayisi++
             }
@@ -81,13 +80,17 @@ isMukemmelSayi()
 // Soru 4- 1000'e kadar olan asal sayıları yazdıran fonksiyon
 console.log("Soru 4- 1000'e kadar olan asal sayıları yazdıran fonksiyon");
 let asalSayilar = () => {
-    for (let i = 1; i <= 1000; i++) {
-        if (i==2 || i==3 || i==5 || i==7) {
-            console.log(i + " Asal Sayıdır.");
+    for (let i = 2; i <= 1000; i++) {
+        let asal = true
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                asal = false
+                break
+            }
         }
-       if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0) {
-        console.log(i + " Asal Sayıdır.");
-       }
+        if (asal) {
+            console.log(i + " asal sayıdır123");
+        }
     }
 }
 
